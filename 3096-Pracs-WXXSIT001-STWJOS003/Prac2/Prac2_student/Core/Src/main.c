@@ -53,8 +53,8 @@ TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
 // TODO: Define any input variables
-static uint8_t patterns[] = {0b10101010, 0b01010101, 0b11001100, 0b00110011, 0b11110000, 0b00001111};
-
+static uint8_t patterns[] = {10101010, 01010101, 11001100, 00110011, 11110000, 00001111};
+static uint8_t count = 0b0;
 
 /* USER CODE END PV */
 
@@ -109,20 +109,12 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim16);
 
   // TODO: Write all "patterns" to EEPROM using SPI
-  /*uint16_t counter = 0b0;
-  uint8_t pat;
+  uint16_t counter = 0b0;
   for (int i = 0; i <= 5; i++) {
-	  pat = patterns[i];
-      }*/
+	  write_to_address(counter, patterns[i]);
+	  counter++;
+      }
 
-  // Calculate the number of elements in the array
-  size_t numElements = sizeof(patterns) / sizeof(patterns[0]);
-
-      // Loop through each byte in the array
-  for (size_t i = 0; i < numElements; i++) {
-	  uint8_t currentByte = patterns[i];
-      printf("Byte %zu: \n", i, currentByte);
-  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -135,6 +127,8 @@ int main(void)
 
 	// TODO: Check button PA0; if pressed, change timer delay
 
+	  LL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
+	  delay(1500);
   }
   /* USER CODE END 3 */
 }
