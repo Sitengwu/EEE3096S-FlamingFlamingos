@@ -53,7 +53,7 @@ TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
 // TODO: Define any input variables
-static uint8_t patterns[] = {};
+static uint8_t patterns[] = {10101010, 01010101, 11001100, 00110011, 11110000, 00001111};
 
 
 /* USER CODE END PV */
@@ -118,7 +118,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  JDFKJDFKFJDKFJDKFJDKJDKJJFDK
+
     /* USER CODE BEGIN 3 */
 
 	// TODO: Check button PA0; if pressed, change timer delay
