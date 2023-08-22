@@ -1,0 +1,7 @@
+22:01:55 **** Incremental Build of configuration Debug for project Prac3 ****
+make -j7 all 
+make: *** No rule to make target '/Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_adc.c', needed by 'Drivers/STM32F0xx_HAL_Driver/stm32f0xx_hal_adc.o'.  Stop.
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+
+22:01:55 Build Failed. 1 errors, 0 warnings. (took 342ms)
+
