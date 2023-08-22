@@ -128,9 +128,9 @@ int main(void)
 	// TODO: Check button PA0; if pressed, change timer delay
 
 	  LL_GPIO_TogglePin(GPIOB, patterns[0]);
-	  HAL_Delay(500);
+	  delay(1500);
 	  LL_GPIO_TogglePin(GPIOB, 0b0);
-	  HAL_Delay(500);
+	  delay(1500);
   }
   /* USER CODE END 3 */
 }

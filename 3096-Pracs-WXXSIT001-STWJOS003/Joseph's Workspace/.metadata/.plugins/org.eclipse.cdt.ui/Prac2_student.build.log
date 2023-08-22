@@ -1,6 +1,6 @@
-23:08:30 **** Incremental Build of configuration Default for project Prac2_student ****
+23:28:54 **** Incremental Build of configuration Default for project Prac2_student ****
 make all 
 make: Nothing to be done for 'all'.
 
-23:08:30 Build Finished. 0 errors, 0 warnings. (took 595ms)
+23:28:54 Build Finished. 0 errors, 0 warnings. (took 492ms)
 
