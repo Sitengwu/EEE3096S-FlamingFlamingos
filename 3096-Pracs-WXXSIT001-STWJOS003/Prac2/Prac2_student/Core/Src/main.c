@@ -129,6 +129,8 @@ int main(void)
 
 	  LL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
 	  delay(1500);
+	  LL_GPIO_ResetOutputPin(LED0_GPIO_Port, LED0_Pin);
+	  delay(1500);
   }
   /* USER CODE END 3 */
 }
