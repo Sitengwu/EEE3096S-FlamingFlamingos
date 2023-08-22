@@ -121,7 +121,7 @@ int main(void)
       // Loop through each byte in the array
   for (size_t i = 0; i < numElements; i++) {
 	  uint8_t currentByte = patterns[i];
-      printf("Byte %zu: \n", i, currentByte);
+	  // test
   }
   /* USER CODE END 2 */
 
