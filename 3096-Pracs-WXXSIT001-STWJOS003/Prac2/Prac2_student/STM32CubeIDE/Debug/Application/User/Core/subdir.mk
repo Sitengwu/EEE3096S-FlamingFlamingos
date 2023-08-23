@@ -5,9 +5,9 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-/Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/main.c \
-/Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/stm32f0xx_hal_msp.c \
-/Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/stm32f0xx_it.c \
+/home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/main.c \
+/home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/stm32f0xx_hal_msp.c \
+/home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/stm32f0xx_it.c \
 ../Application/User/Core/syscalls.c \
 ../Application/User/Core/sysmem.c 
 
@@ -27,11 +27,11 @@ C_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Application/User/Core/main.o: /Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/main.c Application/User/Core/subdir.mk
+Application/User/Core/main.o: /home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/main.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32F051x8 -c -I../../Core/Inc -I../../Drivers/STM32F0xx_HAL_Driver/Inc -I../../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
-Application/User/Core/stm32f0xx_hal_msp.o: /Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/stm32f0xx_hal_msp.c Application/User/Core/subdir.mk
+Application/User/Core/stm32f0xx_hal_msp.o: /home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/stm32f0xx_hal_msp.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32F051x8 -c -I../../Core/Inc -I../../Drivers/STM32F0xx_HAL_Driver/Inc -I../../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
-Application/User/Core/stm32f0xx_it.o: /Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/stm32f0xx_it.c Application/User/Core/subdir.mk
+Application/User/Core/stm32f0xx_it.o: /home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Core/Src/stm32f0xx_it.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32F051x8 -c -I../../Core/Inc -I../../Drivers/STM32F0xx_HAL_Driver/Inc -I../../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 Application/User/Core/%.o Application/User/Core/%.su Application/User/Core/%.cyclo: ../Application/User/Core/%.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32F051x8 -c -I../../Core/Inc -I../../Drivers/STM32F0xx_HAL_Driver/Inc -I../../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"

@@ -61,8 +61,8 @@ all: main-build
 main-build: Prac3.elf secondary-outputs
 
 # Tool invocations
-Prac3.elf Prac3.map: $(OBJS) $(USER_OBJS) /Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/STM32CubeIDE/STM32F051C6TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Prac3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"/Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/STM32CubeIDE/STM32F051C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Prac3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Prac3.elf Prac3.map: $(OBJS) $(USER_OBJS) /home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/STM32CubeIDE/STM32F051C6TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Prac3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"/home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/STM32CubeIDE/STM32F051C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Prac3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

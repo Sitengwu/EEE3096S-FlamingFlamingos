@@ -1,5 +1,5 @@
 Drivers/STM32F0xx_HAL_Driver/stm32f0xx_hal.o: \
- /Users/josephstewart/Desktop/Github/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c \
+ /home/sitengwu/EEE3096S/EEE3096S-FlamingFlamingos/3096-Pracs-WXXSIT001-STWJOS003/Prac2/Prac2_student/Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c \
  ../../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h \
  ../../Core/Inc/stm32f0xx_hal_conf.h \
  ../../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h \
