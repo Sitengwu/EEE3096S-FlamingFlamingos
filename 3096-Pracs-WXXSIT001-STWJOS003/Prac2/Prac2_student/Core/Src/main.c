@@ -109,18 +109,9 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim16);
 
   // TODO: Write all "patterns" to EEPROM using SPI
-  uint16_t counter = 0xFA0;
   for (uint32_t i = 0; i <= 5; i++)
   {
-	  write_to_address(counter, patterns[i]);
-	  counter++;
-  }
-  counter = 0xFA0;
-  for (uint32_t i = 0; i <= 5; i++)
-  {
-	  LL_GPIO_TogglePin(GPIOB, read_from_address(counter));
-	  HAL_Delay(1000);
-  	  counter++;
+	  write_to_address(i, patterns[i]);
   }
   /* USER CODE END 2 */
 
@@ -133,8 +124,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	// TODO: Check button PA0; if pressed, change timer delay
-	  if (HAL_GPIO_ReadPin(Button0_GPIO_Port, Button0_Pin)==1)
-	  {
+	if (HAL_GPIO_ReadPin(Button0_GPIO_Port, Button0_Pin)==1)
+	{
 
 	}
 //
@@ -445,27 +436,27 @@ void TIM16_IRQHandler(void)
 	HAL_TIM_IRQHandler(&htim16);
 
 	// TODO: Change to next LED pattern; output 0x01 if the read SPI data is incorrect
-//	LL_GPIO_ResetOutputPin(LED0_GPIO_Port, LED0_Pin);
-//    LL_GPIO_ResetOutputPin(LED1_GPIO_Port, LED1_Pin);
-//    LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
-//    LL_GPIO_ResetOutputPin(LED3_GPIO_Port, LED3_Pin);
-// 	LL_GPIO_ResetOutputPin(LED4_GPIO_Port, LED4_Pin);
-//	LL_GPIO_ResetOutputPin(LED5_GPIO_Port, LED5_Pin);
-//	LL_GPIO_ResetOutputPin(LED6_GPIO_Port, LED6_Pin);
-//	LL_GPIO_ResetOutputPin(LED7_GPIO_Port, LED7_Pin);
-//
-//	uint8_t temp = read_from_address(count);
-//
-//	if (temp==patterns[count])
-//	{
-//		LL_GPIO_TogglePin(GPIOB, read_from_address(count));
-//		count++;
-//	}
-//
-//	if (count==6)
-//	{
-//		count=0;
-//	}
+	LL_GPIO_ResetOutputPin(LED0_GPIO_Port, LED0_Pin);
+    LL_GPIO_ResetOutputPin(LED1_GPIO_Port, LED1_Pin);
+    LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
+    LL_GPIO_ResetOutputPin(LED3_GPIO_Port, LED3_Pin);
+ 	LL_GPIO_ResetOutputPin(LED4_GPIO_Port, LED4_Pin);
+	LL_GPIO_ResetOutputPin(LED5_GPIO_Port, LED5_Pin);
+	LL_GPIO_ResetOutputPin(LED6_GPIO_Port, LED6_Pin);
+	LL_GPIO_ResetOutputPin(LED7_GPIO_Port, LED7_Pin);
+
+	uint8_t temp = read_from_address(count);
+
+	if (temp==patterns[count])
+	{
+		LL_GPIO_TogglePin(GPIOB, temp);
+		count++;
+	}
+
+	if (count==6)
+	{
+		count=0;
+	}
 }
 
 /* USER CODE END 4 */
