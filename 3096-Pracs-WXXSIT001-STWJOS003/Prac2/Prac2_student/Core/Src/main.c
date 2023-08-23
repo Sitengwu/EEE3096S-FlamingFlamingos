@@ -54,7 +54,7 @@ TIM_HandleTypeDef htim16;
 /* USER CODE BEGIN PV */
 // TODO: Define any input variables
 static uint8_t patterns[] = {0b10101010, 0b01010101, 0b11001100, 0b00110011, 0b11110000, 0b00001111};
-static uint8_t count = 0b0;
+static uint8_t count = 0;
 
 /* USER CODE END PV */
 
@@ -110,10 +110,11 @@ int main(void)
 
   // TODO: Write all "patterns" to EEPROM using SPI
   uint16_t counter = 0b0;
-  for (int i = 0; i <= 5; i++) {
-	  write_to_address(counter, patterns[i]);
+  for (uint32_t i = 0; i <= 5; i++)
+  {
+	  write_to_address(counter, 0b01010101);
 	  counter++;
-      }
+  }
 
   /* USER CODE END 2 */
 
@@ -127,10 +128,7 @@ int main(void)
 
 	// TODO: Check button PA0; if pressed, change timer delay
 
-	  LL_GPIO_TogglePin(GPIOB, patterns[0]);
-	  HAL_Delay(500);
-	  LL_GPIO_TogglePin(GPIOB, 0b0);
-	  HAL_Delay(500);
+//
   }
   /* USER CODE END 3 */
 }
@@ -438,7 +436,21 @@ void TIM16_IRQHandler(void)
 	HAL_TIM_IRQHandler(&htim16);
 
 	// TODO: Change to next LED pattern; output 0x01 if the read SPI data is incorrect
+	LL_GPIO_ResetOutputPin(LED0_GPIO_Port, LED0_Pin);
+    LL_GPIO_ResetOutputPin(LED1_GPIO_Port, LED1_Pin);
+    LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
+    LL_GPIO_ResetOutputPin(LED3_GPIO_Port, LED3_Pin);
+ 	LL_GPIO_ResetOutputPin(LED4_GPIO_Port, LED4_Pin);
+	LL_GPIO_ResetOutputPin(LED5_GPIO_Port, LED5_Pin);
+	LL_GPIO_ResetOutputPin(LED6_GPIO_Port, LED6_Pin);
+	LL_GPIO_ResetOutputPin(LED7_GPIO_Port, LED7_Pin);
 
+	LL_GPIO_TogglePin(GPIOB, read_from_address(count));
+	count++;
+	if (count==6)
+	{
+		count=0;
+	}
 }
 
 /* USER CODE END 4 */
