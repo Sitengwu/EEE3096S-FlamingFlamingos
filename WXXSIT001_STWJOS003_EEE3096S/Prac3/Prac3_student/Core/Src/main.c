@@ -359,14 +359,14 @@ void writeLCD(char *char_in){
 uint32_t pollADC(void){
   // TODO: Complete function body to get ADC val
 
-	return val;
+//	return val;
 }
 
 // Calculate PWM CCR value
 uint32_t ADCtoCCR(uint32_t adc_val){
   // TODO: Calculate CCR val using an appropriate equation
 
-	return val;
+//	return val;
 }
 
 void ADC1_COMP_IRQHandler(void)
@@ -387,6 +387,7 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+
   }
   /* USER CODE END Error_Handler_Debug */
 }
