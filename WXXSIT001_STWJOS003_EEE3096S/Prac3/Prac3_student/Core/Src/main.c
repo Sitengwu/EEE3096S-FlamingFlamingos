@@ -50,6 +50,7 @@ uint32_t prev_millis = 0;
 uint32_t curr_millis = 0;
 uint32_t delay_t = 500; // Initialise delay to 500ms
 uint32_t adc_val;
+char str[5];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -114,8 +115,8 @@ int main(void)
 	HAL_GPIO_TogglePin(GPIOB, LED7_Pin);
 
 	// ADC to LCD; TODO: Read POT1 value and write to LCD
-
-
+	sprintf(str,"%ld",pollADC());
+	writeLCD(str);
 	// Update PWM value; TODO: Get CRR
 
 	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, CCR);
@@ -352,14 +353,15 @@ void EXTI0_1_IRQHandler(void)
 void writeLCD(char *char_in){
     delay(3000);
 	lcd_command(CLEAR);
-
+	lcd_putstring(char_in);
 }
 
 // Get ADC value
 uint32_t pollADC(void){
   // TODO: Complete function body to get ADC val
-
-//	return val;
+	HAL_ADC_Start(&hadc);
+	ADC1_COMP_IRQHandler();
+	return adc_val;
 }
 
 // Calculate PWM CCR value
