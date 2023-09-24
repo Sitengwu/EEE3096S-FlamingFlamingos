@@ -118,7 +118,7 @@ int main(void)
 	sprintf(str,"%ld",pollADC());
 	writeLCD(str);
 	// Update PWM value; TODO: Get CRR
-
+	CCR = ADCtoCCR(adc_val);
 	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, CCR);
 
 	// Wait for delay ms
@@ -377,10 +377,11 @@ uint32_t pollADC(void){
 }
 
 // Calculate PWM CCR value
-uint32_t ADCtoCCR(uint32_t adc_val){
+uint32_t ADCtoCCR(uint32_t adc_val)
+{
   // TODO: Calculate CCR val using an appropriate equation
 
-//	return val;
+  	return adc_val*11.72;
 }
 
 void ADC1_COMP_IRQHandler(void)
