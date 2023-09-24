@@ -117,12 +117,14 @@ int main(void)
 	// ADC to LCD; TODO: Read POT1 value and write to LCD
 	sprintf(str,"%ld",pollADC());
 	writeLCD(str);
+
 	// Update PWM value; TODO: Get CRR
 	CCR = ADCtoCCR(adc_val);
 	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, CCR);
 
 	// Wait for delay ms
 	HAL_Delay (delay_t);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
