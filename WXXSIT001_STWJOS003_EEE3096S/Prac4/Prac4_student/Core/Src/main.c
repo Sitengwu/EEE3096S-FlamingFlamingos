@@ -52,6 +52,10 @@ DMA_HandleTypeDef hdma_tim2_ch1;
 /* USER CODE BEGIN PV */
 // TODO: Add code for global variables, including LUTs
 
+uint32_t counter = 0; // Initialize counter to 0
+uint32_t prev_millis = 0;
+uint32_t curr_millis = 0;
+
 uint32_t Sin_LUT[NS] = {512, 537, 562, 587, 611, 636, 660, 684, 707, 730, 753, 774, 796, 816, 836, 855, 873, 890, 907,
 		922, 937, 950, 963, 974, 984, 993, 1001, 1008, 1013, 1017, 1021, 1022, 1023, 1022, 1021, 1017, 1013, 1008, 1001,
 		993, 984, 974, 963, 950, 937, 922, 907, 890, 873, 855, 836, 816, 796, 774, 753, 730, 707, 684, 660, 636, 611, 587,
@@ -367,7 +371,31 @@ static void MX_GPIO_Init(void)
 void EXTI0_1_IRQHandler(void)
 {
 	// TODO: Debounce using HAL_GetTick()
+	curr_millis = HAL_GetTick();
 
+	if (curr_millis - prev_millis > 10){
+		if (counter == 2){
+				counter = 0;
+				delay(3000);
+				lcd_command(CLEAR);
+				lcd_putstring("Sine");
+		}
+		else {
+			counter += 1;
+			if (counter == 1){
+				delay(3000);
+				lcd_command(CLEAR);
+				lcd_putstring("Saw");
+			}
+			else{
+				delay(3000);
+				lcd_command(CLEAR);
+				lcd_putstring("Triangle");
+			}
+		}
+
+		prev_millis = curr_millis;
+	}
 
 	// TODO: Disable DMA transfer and abort IT, then start DMA in IT mode with new LUT and re-enable transfer
 	// HINT: Consider using C's "switch" function to handle LUT changes
