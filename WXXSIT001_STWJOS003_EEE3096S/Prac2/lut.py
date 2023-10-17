@@ -16,7 +16,7 @@ sine = ((amplitude * np.sin(2 * np.pi * frequency * t))+1)*(1023/2)
 for i in range(0,len(sine),1):
     sine[i] = int(round(sine[i]))
 
-sawtooth = np.linspace(0,1023,128,dtype=int)
+sawtooth = np.linspace(0,1023,129,dtype=int)
 h1 = np.linspace(0,1023,65,dtype=int)
 h2 = np.linspace(1023,0,65,dtype=int)
 h2 = h2[1:len(h2)]
