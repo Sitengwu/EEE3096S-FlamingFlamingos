@@ -1,6 +1,6 @@
-11:51:01 **** Incremental Build of configuration Default for project Prac3_student ****
+12:22:55 **** Build of configuration Default for project Prac3_student ****
 make all 
 make: Nothing to be done for 'all'.
 
-11:51:01 Build Finished. 0 errors, 0 warnings. (took 240ms)
+12:22:55 Build Finished. 0 errors, 0 warnings. (took 328ms)
 

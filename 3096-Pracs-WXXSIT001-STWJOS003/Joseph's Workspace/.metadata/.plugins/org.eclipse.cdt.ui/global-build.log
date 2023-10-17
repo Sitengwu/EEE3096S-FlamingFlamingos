@@ -4,3 +4,850 @@ make: Nothing to be done for 'all'.
 11:51:01 **** Incremental Build of configuration Default for project Prac3_student ****
 make all 
 make: Nothing to be done for 'all'.
+13:17:49 **** Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'main':
+Core/Src/main.c:118:24: warning: format '%ld' expects argument of type 'long int', but argument 3 has type 'char *' [-Wformat=]
+  118 |         sprintf(str,"%ld",str);
+      |                      ~~^  ~~~
+      |                        |  |
+      |                        |  char *
+      |                        long int
+      |                      %s
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:375:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:387:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  387 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:375:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13416	    104	   2048	  15568	   3cd0	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:17:54 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:20:44 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:375:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:387:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  387 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:375:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13720	    104	   2048	  15872	   3e00	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:20:50 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:375:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:387:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  387 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:375:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13732	    104	   2048	  15884	   3e0c	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:20:55 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:23:02 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:375:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:387:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  387 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:375:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13736	    104	   2048	  15888	   3e10	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:23:06 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:23:22 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:27:36 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'main':
+Core/Src/main.c:127:17: error: 'counter' undeclared (first use in this function); did you mean 'count'?
+  127 |                 counter ++;
+      |                 ^~~~~~~
+      |                 count
+Core/Src/main.c:127:17: note: each undeclared identifier is reported only once for each function it appears in
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:423:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  423 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:435:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  435 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:423:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  423 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:177: build/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:27:40 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'main':
+Core/Src/main.c:127:17: error: 'counter' undeclared (first use in this function); did you mean 'count'?
+  127 |                 counter ++;
+      |                 ^~~~~~~
+      |                 count
+Core/Src/main.c:127:17: note: each undeclared identifier is reported only once for each function it appears in
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:423:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  423 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:435:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  435 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:423:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  423 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:177: build/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:27:45 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'main':
+Core/Src/main.c:127:17: error: 'counter' undeclared (first use in this function); did you mean 'count'?
+  127 |                 counter ++;
+      |                 ^~~~~~~
+      |                 count
+Core/Src/main.c:127:17: note: each undeclared identifier is reported only once for each function it appears in
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:423:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  423 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:435:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  435 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:423:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  423 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:177: build/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:28:44 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'main':
+Core/Src/main.c:135:25: error: 'counter' undeclared (first use in this function); did you mean 'count'?
+  135 |                         counter ++;
+      |                         ^~~~~~~
+      |                         count
+Core/Src/main.c:135:25: note: each undeclared identifier is reported only once for each function it appears in
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:423:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  423 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:435:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  435 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:423:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  423 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:177: build/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:29:22 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:413:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:425:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  425 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:413:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13948	    104	   2048	  16100	   3ee4	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:29:24 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:29:26 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:29:52 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:413:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:425:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  425 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:413:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13952	    104	   2048	  16104	   3ee8	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:29:53 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:29:56 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:31:20 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:413:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:425:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  425 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:413:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13752	    104	   2048	  15904	   3e20	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:31:21 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:31:24 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:33:23 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:413:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:425:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  425 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:413:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  14048	    104	   2048	  16200	   3f48	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:33:50 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:413:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:425:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  425 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:413:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  413 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  14048	    104	   2048	  16200	   3f48	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:33:57 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:34:00 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:37:35 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:421:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  421 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:433:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  433 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:421:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  421 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13936	    104	   2048	  16088	   3ed8	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:37:36 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:38:38 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:425:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  425 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:437:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  437 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:425:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  425 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  14048	    104	   2048	  16200	   3f48	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:38:40 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:38:44 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:39:32 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:425:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  425 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:437:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  437 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:425:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  425 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13984	    104	   2048	  16136	   3f08	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:39:34 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:39:36 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:40:30 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:425:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  425 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:437:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  437 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:425:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  425 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  14000	    104	   2048	  16152	   3f18	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:40:34 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:40:37 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:42:03 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+Core/Src/main.c: In function 'main':
+Core/Src/main.c:112:12: warning: unused variable 'count' [-Wunused-variable]
+  112 |   uint32_t count = 10;
+      |            ^~~~~
+Core/Src/main.c: In function 'pollADC':
+Core/Src/main.c:375:9: warning: implicit declaration of function 'ADC1_COMP_IRQHandler'; did you mean 'ADC1_IRQHandler'? [-Wimplicit-function-declaration]
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+      |         ADC1_IRQHandler
+Core/Src/main.c: At top level:
+Core/Src/main.c:387:6: warning: conflicting types for 'ADC1_COMP_IRQHandler'; have 'void(void)'
+  387 | void ADC1_COMP_IRQHandler(void)
+      |      ^~~~~~~~~~~~~~~~~~~~
+Core/Src/main.c:375:9: note: previous implicit declaration of 'ADC1_COMP_IRQHandler' with type 'void(void)'
+  375 |         ADC1_COMP_IRQHandler();
+      |         ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_adc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_adc_ex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac3.map,--cref -Wl,--gc-sections -o build/Prac3.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac3.elf
+   text	   data	    bss	    dec	    hex	filename
+  13700	    104	   2056	  15860	   3df4	build/Prac3.elf
+arm-none-eabi-objcopy -O ihex build/Prac3.elf build/Prac3.hex
+arm-none-eabi-objcopy -O binary -S build/Prac3.elf build/Prac3.bin	
+13:42:09 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+13:42:14 **** Incremental Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+12:22:55 **** Build of configuration Default for project Prac3_student ****
+make all 
+make: Nothing to be done for 'all'.
+12:22:56 **** Build of configuration Default for project Prac4_student ****
+make all 
+mkdir build		
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/main.d" -Wa,-a,-ad,-alms=build/main.lst Core/Src/main.c -o build/main.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/main.c:20:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_it.d" -Wa,-a,-ad,-alms=build/stm32f0xx_it.lst Core/Src/stm32f0xx_it.c -o build/stm32f0xx_it.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/stm32f0xx_it.c:21:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/system_stm32f0xx.d" -Wa,-a,-ad,-alms=build/system_stm32f0xx.lst Core/Src/system_stm32f0xx.c -o build/system_stm32f0xx.o
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_ll_gpio.d" -Wa,-a,-ad,-alms=build/stm32f0xx_ll_gpio.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_gpio.c -o build/stm32f0xx_ll_gpio.o
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c -o build/stm32f0xx_hal.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c:36:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_pwr.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_pwr.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c -o build/stm32f0xx_hal_pwr.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c:25:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_pwr_ex.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_pwr_ex.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c -o build/stm32f0xx_hal_pwr_ex.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c:25:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_ll_exti.d" -Wa,-a,-ad,-alms=build/stm32f0xx_ll_exti.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_exti.c -o build/stm32f0xx_ll_exti.o
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_ll_rcc.d" -Wa,-a,-ad,-alms=build/stm32f0xx_ll_rcc.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_rcc.c -o build/stm32f0xx_ll_rcc.o
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_cortex.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_cortex.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c -o build/stm32f0xx_hal_cortex.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c:82:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_dma.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_dma.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c -o build/stm32f0xx_hal_dma.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c:77:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_flash.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_flash.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c -o build/stm32f0xx_hal_flash.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c:82:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_flash_ex.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_flash_ex.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c -o build/stm32f0xx_hal_flash_ex.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c:41:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_gpio.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_gpio.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c -o build/stm32f0xx_hal_gpio.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c:111:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_i2c.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_i2c.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c -o build/stm32f0xx_hal_i2c.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c:323:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_i2c_ex.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_i2c_ex.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c -o build/stm32f0xx_hal_i2c_ex.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c:51:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_tim.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_tim.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c -o build/stm32f0xx_hal_tim.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c:186:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_tim_ex.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_tim_ex.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c -o build/stm32f0xx_hal_tim_ex.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c:82:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_rcc.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_rcc.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c -o build/stm32f0xx_hal_rcc.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c:61:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_rcc_ex.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_rcc_ex.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c -o build/stm32f0xx_hal_rcc_ex.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c:24:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_hal_msp.d" -Wa,-a,-ad,-alms=build/stm32f0xx_hal_msp.lst Core/Src/stm32f0xx_hal_msp.c -o build/stm32f0xx_hal_msp.o
+In file included from Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:29,
+                 from Core/Inc/main.h:30,
+                 from Core/Src/stm32f0xx_hal_msp.c:22:
+Core/Inc/stm32f0xx_hal_conf.h:151: warning: "VDD_VALUE" redefined
+  151 | #define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/stm32f0xx_ll_utils.d" -Wa,-a,-ad,-alms=build/stm32f0xx_ll_utils.lst Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_utils.c -o build/stm32f0xx_ll_utils.o
+arm-none-eabi-gcc -x assembler-with-cpp -c -mcpu=cortex-m0 -mthumb   -DSTM32F051x8 -DUSE_FULL_LL_DRIVER -DHSE_VALUE=8000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DHSI_VALUE=8000000 -DLSI_VALUE=40000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=0 -DDATA_CACHE_ENABLE=0 -ICore/Inc -IDrivers/STM32F0xx_HAL_Driver/Inc -IDrivers/CMSIS/Device/ST/STM32F0xx/Include -IDrivers/CMSIS/Include -Og -Wall -fdata-sections -ffunction-sections -g -gdwarf-2 -MMD -MP -MF"build/startup_stm32f051x8.d" startup_stm32f051x8.s -o build/startup_stm32f051x8.o
+arm-none-eabi-gcc build/main.o build/stm32f0xx_it.o build/system_stm32f0xx.o build/stm32f0xx_ll_gpio.o build/stm32f0xx_hal.o build/stm32f0xx_hal_pwr.o build/stm32f0xx_hal_pwr_ex.o build/stm32f0xx_ll_exti.o build/stm32f0xx_ll_rcc.o build/stm32f0xx_hal_cortex.o build/stm32f0xx_hal_dma.o build/stm32f0xx_hal_flash.o build/stm32f0xx_hal_flash_ex.o build/stm32f0xx_hal_gpio.o build/stm32f0xx_hal_i2c.o build/stm32f0xx_hal_i2c_ex.o build/stm32f0xx_hal_tim.o build/stm32f0xx_hal_tim_ex.o build/stm32f0xx_hal_rcc.o build/stm32f0xx_hal_rcc_ex.o build/stm32f0xx_hal_msp.o build/stm32f0xx_ll_utils.o build/startup_stm32f051x8.o -mcpu=cortex-m0 -mthumb   -specs=nano.specs -TSTM32F051C6Tx_FLASH.ld  -lc -lm -lnosys  -Wl,-Map=build/Prac4.map,--cref -Wl,--gc-sections -o build/Prac4.elf
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld: /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.macos64_1.1.0.202305231506/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+arm-none-eabi-size build/Prac4.elf
+   text	   data	    bss	    dec	    hex	filename
+   5324	     20	   1788	   7132	   1bdc	build/Prac4.elf
+arm-none-eabi-objcopy -O ihex build/Prac4.elf build/Prac4.hex
+arm-none-eabi-objcopy -O binary -S build/Prac4.elf build/Prac4.bin	
