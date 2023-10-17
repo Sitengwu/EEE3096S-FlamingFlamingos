@@ -36,7 +36,7 @@
 // TODO: Add values for below variables
 #define NS 129      // Number of samples in LUT
 #define TIM2CLK 8000000  // STM Clock frequency
-#define F_SIGNAL 1000 // Frequency of output analog signal
+#define F_SIGNAL 50 // Frequency of output analog signal
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -78,7 +78,7 @@ uint32_t triangle_LUT[NS] = {0, 15, 31, 47, 63, 79, 95, 111, 127, 143, 159, 175,
 		159, 143, 127, 111, 95, 79, 63, 47, 31, 15, 0};
 
 // TODO: Equation to calculate TIM2_Ticks
-uint32_t TIM2_Ticks = 0; // How often to write new LUT value
+uint32_t TIM2_Ticks = TIM2CLK/(F_SIGNAL*NS); // How often to write new LUT value
 uint32_t DestAddress = (uint32_t) &(TIM3->CCR3); // Write LUT TO TIM3->CCR3 to modify PWM duty cycle
 
 /* USER CODE END PV */
@@ -145,7 +145,7 @@ int main(void)
   lcd_putstring("Sine");
 
   // TODO: Enable DMA (start transfer from LUT to CCR)
-  __HAL_TIM_ENABLE_DMA(htim2, TIM_DMA_CC1);
+  __HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_CC1);
 
   /* USER CODE END 2 */
 
@@ -376,21 +376,39 @@ void EXTI0_1_IRQHandler(void)
 	if (curr_millis - prev_millis > 10){
 		if (counter == 2){
 				counter = 0;
+
 				delay(3000);
 				lcd_command(CLEAR);
 				lcd_putstring("Sine");
+				// Stopping and resetting DMA with new value
+				__HAL_TIM_DISABLE_DMA(&htim2, TIM_DMA_CC1);
+				HAL_DMA_Abort_IT(&hdma_tim2_ch1);
+				HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t) &(Sin_LUT), DestAddress, NS);
+				__HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_CC1);
 		}
 		else {
 			counter += 1;
 			if (counter == 1){
+
 				delay(3000);
 				lcd_command(CLEAR);
 				lcd_putstring("Saw");
+				// Stopping and resetting DMA with new value
+				__HAL_TIM_DISABLE_DMA(&htim2, TIM_DMA_CC1);
+				HAL_DMA_Abort_IT(&hdma_tim2_ch1);
+				HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t) &(saw_LUT), DestAddress, NS);
+				__HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_CC1);
 			}
 			else{
+
 				delay(3000);
 				lcd_command(CLEAR);
 				lcd_putstring("Triangle");
+				// Stopping and resetting DMA with new value
+				__HAL_TIM_DISABLE_DMA(&htim2, TIM_DMA_CC1);
+				HAL_DMA_Abort_IT(&hdma_tim2_ch1);
+				HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t) &(triangle_LUT), DestAddress, NS);
+				__HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_CC1);
 			}
 		}
 
